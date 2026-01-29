@@ -1,0 +1,20 @@
+/* 全站视频背景 */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* 盖一层暗色遮罩，保证文字可读 */
+#bg-video-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
