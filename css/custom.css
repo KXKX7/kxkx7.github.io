@@ -1,34 +1,42 @@
 :root {
-  --panel-bg-light: rgba(255, 255, 255, 0.72);
+  --panel-bg-light: rgba(255, 255, 255, 0.68);
   --panel-border-light: rgba(255, 255, 255, 0.32);
   --panel-shadow-light: rgba(41, 53, 73, 0.14);
-  --panel-bg-dark: rgba(20, 24, 31, 0.6);
+  --panel-bg-dark: rgba(20, 24, 31, 0.58);
   --panel-border-dark: rgba(255, 255, 255, 0.08);
   --panel-shadow-dark: rgba(0, 0, 0, 0.34);
+  --home-bg-blur: 0px;
+  --home-bg-scale: 1;
+  --home-bg-brightness: 0.98;
+  --home-bg-saturate: 1;
+  --home-bg-overlay-top: rgba(255, 255, 255, 0.08);
+  --home-bg-overlay-bottom: rgba(255, 255, 255, 0.18);
+  --home-bg-overlay-solid: rgba(236, 240, 244, 0.08);
 }
 
-/* Blur the single global background layer instead of each panel */
+/* One fixed wallpaper layer for the whole site */
 #web_bg {
   position: fixed !important;
   inset: -24px !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  filter: blur(18px) brightness(0.9) saturate(0.92);
-  transform: scale(1.06);
+  filter: blur(var(--home-bg-blur)) brightness(var(--home-bg-brightness)) saturate(var(--home-bg-saturate));
+  transform: scale(var(--home-bg-scale));
+  transition: filter 220ms ease, transform 220ms ease;
 }
 
-/* Add a soft veil so foreground panels read clearly */
 #web_bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.28)),
-    rgba(236, 240, 244, 0.16);
+    linear-gradient(180deg, var(--home-bg-overlay-top), var(--home-bg-overlay-bottom)),
+    var(--home-bg-overlay-solid);
+  transition: background 220ms ease;
 }
 
-/* Foreground content panels */
+/* Foreground panels float above the wallpaper */
 #recent-posts .recent-post-item,
 #aside-content .card-widget,
 #post,
@@ -47,22 +55,20 @@
 #post:hover,
 #page:hover,
 .layout > div:first-child > .article-sort-item:hover {
-  background: rgba(255, 255, 255, 0.78) !important;
+  background: rgba(255, 255, 255, 0.76) !important;
   box-shadow: 0 20px 44px rgba(41, 53, 73, 0.18);
 }
 
 #page-header::before {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-[data-theme='dark'] #web_bg {
-  filter: blur(20px) brightness(0.52) saturate(0.85);
-}
-
-[data-theme='dark'] #web_bg::after {
-  background:
-    linear-gradient(180deg, rgba(9, 11, 16, 0.28), rgba(9, 11, 16, 0.42)),
-    rgba(9, 11, 16, 0.2);
+[data-theme='dark'] {
+  --home-bg-brightness: 0.72;
+  --home-bg-saturate: 0.92;
+  --home-bg-overlay-top: rgba(9, 11, 16, 0.12);
+  --home-bg-overlay-bottom: rgba(9, 11, 16, 0.26);
+  --home-bg-overlay-solid: rgba(9, 11, 16, 0.1);
 }
 
 [data-theme='dark'] #recent-posts .recent-post-item,
@@ -81,6 +87,6 @@
 [data-theme='dark'] #post:hover,
 [data-theme='dark'] #page:hover,
 [data-theme='dark'] .layout > div:first-child > .article-sort-item:hover {
-  background: rgba(20, 24, 31, 0.7) !important;
+  background: rgba(20, 24, 31, 0.68) !important;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
 }
