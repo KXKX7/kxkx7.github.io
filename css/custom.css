@@ -26,6 +26,13 @@
   transition: filter 220ms ease, transform 220ms ease;
 }
 
+/* Home page should use the global wallpaper only, not a second header background */
+#body-wrap > #page-header.full_page {
+  background-image: none !important;
+  background-color: transparent !important;
+  background-attachment: scroll !important;
+}
+
 #web_bg::after {
   content: "";
   position: absolute;
@@ -59,8 +66,12 @@
   box-shadow: 0 20px 44px rgba(41, 53, 73, 0.18);
 }
 
-#page-header::before {
+#page-header:not(.full_page)::before {
   background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+#body-wrap > #page-header.full_page::before {
+  background: transparent !important;
 }
 
 [data-theme='dark'] {
