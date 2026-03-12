@@ -14,10 +14,15 @@
   --home-bg-overlay-solid: rgba(236, 240, 244, 0.08);
 }
 
+html,
+body {
+  background: transparent !important;
+}
+
 /* One fixed wallpaper layer for the whole site */
 #web_bg {
   position: fixed !important;
-  inset: -96px !important;
+  inset: -140px !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
