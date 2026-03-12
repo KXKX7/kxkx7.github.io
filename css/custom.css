@@ -1,20 +1,40 @@
-/* Full-screen background image */
-#site-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background-image: url("/img/site-bg.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Frosted panels so content feels layered above the background image */
+#recent-posts .recent-post-item,
+#aside-content .card-widget,
+#post,
+#page,
+#archive {
+  background: rgba(255, 255, 255, 0.58) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(135%);
+  backdrop-filter: blur(10px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 14px 36px rgba(58, 70, 86, 0.12);
 }
 
-/* Keep text readable on top of the background */
-#bg-video-mask {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: -1;
-  pointer-events: none;
+/* Keep hover state subtle instead of popping too far above the background */
+#recent-posts .recent-post-item:hover,
+#aside-content .card-widget:hover {
+  background: rgba(255, 255, 255, 0.64) !important;
+  box-shadow: 0 18px 42px rgba(58, 70, 86, 0.16);
+}
+
+/* Let the top banner blend with the image a bit more softly */
+#page-header::before {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme='dark'] #recent-posts .recent-post-item,
+[data-theme='dark'] #aside-content .card-widget,
+[data-theme='dark'] #post,
+[data-theme='dark'] #page,
+[data-theme='dark'] #archive {
+  background: rgba(22, 27, 34, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme='dark'] #recent-posts .recent-post-item:hover,
+[data-theme='dark'] #aside-content .card-widget:hover {
+  background: rgba(22, 27, 34, 0.58) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
 }
