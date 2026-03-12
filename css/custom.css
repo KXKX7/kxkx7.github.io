@@ -1,40 +1,123 @@
-/* Frosted panels so content feels layered above the background image */
+:root {
+  --glass-border-light: rgba(255, 255, 255, 0.34);
+  --glass-surface-light: rgba(245, 247, 250, 0.2);
+  --glass-overlay-light: rgba(255, 255, 255, 0.34);
+  --glass-shadow-light: rgba(56, 67, 84, 0.16);
+  --glass-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-surface-dark: rgba(16, 20, 26, 0.28);
+  --glass-overlay-dark: rgba(17, 22, 28, 0.4);
+  --glass-shadow-dark: rgba(0, 0, 0, 0.34);
+}
+
 #recent-posts .recent-post-item,
 #aside-content .card-widget,
 #post,
 #page,
-#archive {
-  background: rgba(255, 255, 255, 0.58) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(135%);
-  backdrop-filter: blur(10px) saturate(135%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 14px 36px rgba(58, 70, 86, 0.12);
+#archive,
+.layout > div:first-child > .article-sort-item {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--glass-surface-light) !important;
+  border: 1px solid var(--glass-border-light);
+  box-shadow: 0 18px 40px var(--glass-shadow-light);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
 }
 
-/* Keep hover state subtle instead of popping too far above the background */
+#recent-posts .recent-post-item::before,
+#aside-content .card-widget::before,
+#post::before,
+#page::before,
+#archive::before,
+.layout > div:first-child > .article-sort-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: url("/img/site-bg.jpg") center center / cover no-repeat fixed;
+  filter: blur(22px) brightness(1.04);
+  transform: scale(1.12);
+  opacity: 0.92;
+}
+
+#recent-posts .recent-post-item::after,
+#aside-content .card-widget::after,
+#post::after,
+#page::after,
+#archive::after,
+.layout > div:first-child > .article-sort-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.16)),
+    var(--glass-overlay-light);
+}
+
+#recent-posts .recent-post-item > *,
+#aside-content .card-widget > *,
+#post > *,
+#page > *,
+#archive > *,
+.layout > div:first-child > .article-sort-item > * {
+  position: relative;
+  z-index: 1;
+}
+
 #recent-posts .recent-post-item:hover,
-#aside-content .card-widget:hover {
-  background: rgba(255, 255, 255, 0.64) !important;
-  box-shadow: 0 18px 42px rgba(58, 70, 86, 0.16);
+#aside-content .card-widget:hover,
+#post:hover,
+#page:hover,
+.layout > div:first-child > .article-sort-item:hover {
+  background: rgba(255, 255, 255, 0.26) !important;
+  box-shadow: 0 22px 46px rgba(56, 67, 84, 0.2);
 }
 
-/* Let the top banner blend with the image a bit more softly */
 #page-header::before {
-  background-color: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 [data-theme='dark'] #recent-posts .recent-post-item,
 [data-theme='dark'] #aside-content .card-widget,
 [data-theme='dark'] #post,
 [data-theme='dark'] #page,
-[data-theme='dark'] #archive {
-  background: rgba(22, 27, 34, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+[data-theme='dark'] #archive,
+[data-theme='dark'] .layout > div:first-child > .article-sort-item {
+  background: var(--glass-surface-dark) !important;
+  border-color: var(--glass-border-dark);
+  box-shadow: 0 18px 40px var(--glass-shadow-dark);
+}
+
+[data-theme='dark'] #recent-posts .recent-post-item::before,
+[data-theme='dark'] #aside-content .card-widget::before,
+[data-theme='dark'] #post::before,
+[data-theme='dark'] #page::before,
+[data-theme='dark'] #archive::before,
+[data-theme='dark'] .layout > div:first-child > .article-sort-item::before {
+  filter: blur(22px) brightness(0.72);
+  opacity: 0.86;
+}
+
+[data-theme='dark'] #recent-posts .recent-post-item::after,
+[data-theme='dark'] #aside-content .card-widget::after,
+[data-theme='dark'] #post::after,
+[data-theme='dark'] #page::after,
+[data-theme='dark'] #archive::after,
+[data-theme='dark'] .layout > div:first-child > .article-sort-item::after {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    var(--glass-overlay-dark);
 }
 
 [data-theme='dark'] #recent-posts .recent-post-item:hover,
-[data-theme='dark'] #aside-content .card-widget:hover {
-  background: rgba(22, 27, 34, 0.58) !important;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+[data-theme='dark'] #aside-content .card-widget:hover,
+[data-theme='dark'] #post:hover,
+[data-theme='dark'] #page:hover,
+[data-theme='dark'] .layout > div:first-child > .article-sort-item:hover {
+  background: rgba(18, 23, 30, 0.34) !important;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.4);
 }
