@@ -6,7 +6,7 @@
   --panel-border-dark: rgba(255, 255, 255, 0.08);
   --panel-shadow-dark: rgba(0, 0, 0, 0.34);
   --home-bg-blur: 0px;
-  --home-bg-scale: 1;
+  --home-bg-scale: 1.08;
   --home-bg-brightness: 0.98;
   --home-bg-saturate: 1;
   --home-bg-overlay-top: rgba(255, 255, 255, 0.08);
@@ -17,7 +17,7 @@
 /* One fixed wallpaper layer for the whole site */
 #web_bg {
   position: fixed !important;
-  inset: -24px !important;
+  inset: -96px !important;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -71,6 +71,13 @@
 }
 
 #body-wrap > #page-header.full_page::before {
+  background: transparent !important;
+}
+
+#body-wrap,
+#footer,
+#footer::before,
+#footer .footer-other {
   background: transparent !important;
 }
 
