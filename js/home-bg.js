@@ -37,11 +37,24 @@
   const initHomeBackground = () => {
     cleanup && cleanup()
 
-    const isHome = window.GLOBAL_CONFIG_SITE && GLOBAL_CONFIG_SITE.pageType === 'home'
+    const pageType = window.GLOBAL_CONFIG_SITE && GLOBAL_CONFIG_SITE.pageType
+    const isHome = pageType === 'home'
     const header = document.getElementById('page-header')
     const wallpaper = document.getElementById('web_bg')
 
-    if (!isHome || !header || !wallpaper) {
+    if (!header || !wallpaper) {
+      resetBackground()
+      cleanup = null
+      return
+    }
+
+    if (pageType === 'post') {
+      applyProgress(1)
+      cleanup = null
+      return
+    }
+
+    if (!isHome) {
       resetBackground()
       cleanup = null
       return

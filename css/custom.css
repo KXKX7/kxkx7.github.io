@@ -38,6 +38,13 @@ body {
   background-attachment: scroll !important;
 }
 
+/* Post pages should also rely on the single blurred global wallpaper */
+#body-wrap.post > #page-header.post-bg {
+  background-image: none !important;
+  background-color: transparent !important;
+  background-attachment: scroll !important;
+}
+
 #web_bg::after {
   content: "";
   position: absolute;
@@ -76,6 +83,10 @@ body {
 }
 
 #body-wrap > #page-header.full_page::before {
+  background: transparent !important;
+}
+
+#body-wrap.post > #page-header.post-bg::before {
   background: transparent !important;
 }
 
