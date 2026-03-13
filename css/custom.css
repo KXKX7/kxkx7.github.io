@@ -172,3 +172,12 @@ body:has(#body-wrap.type-link) #web_bg {
 #body-wrap.type-link #footer::before {
   background: transparent !important;
 }
+
+/* Crop header images from the bottom when the aspect ratio does not match */
+#body-wrap.page-archive > #page-header,
+#body-wrap.type-about > #page-header,
+#body-wrap.type-categories > #page-header,
+#body-wrap.type-tags > #page-header,
+#body-wrap.type-link > #page-header {
+  background-position: center top !important;
+}
