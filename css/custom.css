@@ -125,36 +125,50 @@ body {
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
 }
 
-/* Restore pure white content panels on archive and standalone pages */
-#body-wrap.page-archive #archive,
-#body-wrap.page-archive .layout > div:first-child > .article-sort-item,
-#body-wrap.type-about #page,
-#body-wrap.type-categories #page,
-#body-wrap.type-tags #page,
-#body-wrap.type-link #page,
-#body-wrap.page-archive #aside-content .card-widget,
-#body-wrap.type-about #aside-content .card-widget,
-#body-wrap.type-categories #aside-content .card-widget,
-#body-wrap.type-tags #aside-content .card-widget,
-#body-wrap.type-link #aside-content .card-widget {
-  background: #fff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 12px 30px rgba(41, 53, 73, 0.08) !important;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
+/* Restore the default page background on archive and standalone pages */
+html:has(#body-wrap.page-archive),
+html:has(#body-wrap.type-about),
+html:has(#body-wrap.type-categories),
+html:has(#body-wrap.type-tags),
+html:has(#body-wrap.type-link),
+body:has(#body-wrap.page-archive),
+body:has(#body-wrap.type-about),
+body:has(#body-wrap.type-categories),
+body:has(#body-wrap.type-tags),
+body:has(#body-wrap.type-link) {
+  background: var(--global-bg) !important;
 }
 
-#body-wrap.page-archive #archive:hover,
-#body-wrap.page-archive .layout > div:first-child > .article-sort-item:hover,
-#body-wrap.type-about #page:hover,
-#body-wrap.type-categories #page:hover,
-#body-wrap.type-tags #page:hover,
-#body-wrap.type-link #page:hover,
-#body-wrap.page-archive #aside-content .card-widget:hover,
-#body-wrap.type-about #aside-content .card-widget:hover,
-#body-wrap.type-categories #aside-content .card-widget:hover,
-#body-wrap.type-tags #aside-content .card-widget:hover,
-#body-wrap.type-link #aside-content .card-widget:hover {
-  background: #fff !important;
-  box-shadow: 0 14px 34px rgba(41, 53, 73, 0.1) !important;
+body:has(#body-wrap.page-archive) #web_bg,
+body:has(#body-wrap.type-about) #web_bg,
+body:has(#body-wrap.type-categories) #web_bg,
+body:has(#body-wrap.type-tags) #web_bg,
+body:has(#body-wrap.type-link) #web_bg {
+  display: none !important;
+}
+
+#body-wrap.page-archive,
+#body-wrap.type-about,
+#body-wrap.type-categories,
+#body-wrap.type-tags,
+#body-wrap.type-link,
+#body-wrap.page-archive #footer,
+#body-wrap.type-about #footer,
+#body-wrap.type-categories #footer,
+#body-wrap.type-tags #footer,
+#body-wrap.type-link #footer,
+#body-wrap.page-archive #footer .footer-other,
+#body-wrap.type-about #footer .footer-other,
+#body-wrap.type-categories #footer .footer-other,
+#body-wrap.type-tags #footer .footer-other,
+#body-wrap.type-link #footer .footer-other {
+  background: var(--global-bg) !important;
+}
+
+#body-wrap.page-archive #footer::before,
+#body-wrap.type-about #footer::before,
+#body-wrap.type-categories #footer::before,
+#body-wrap.type-tags #footer::before,
+#body-wrap.type-link #footer::before {
+  background: transparent !important;
 }
