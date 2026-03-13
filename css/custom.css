@@ -124,3 +124,37 @@ body {
   background: rgba(20, 24, 31, 0.68) !important;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
 }
+
+/* Restore pure white content panels on archive and standalone pages */
+#body-wrap.page-archive #archive,
+#body-wrap.page-archive .layout > div:first-child > .article-sort-item,
+#body-wrap.type-about #page,
+#body-wrap.type-categories #page,
+#body-wrap.type-tags #page,
+#body-wrap.type-link #page,
+#body-wrap.page-archive #aside-content .card-widget,
+#body-wrap.type-about #aside-content .card-widget,
+#body-wrap.type-categories #aside-content .card-widget,
+#body-wrap.type-tags #aside-content .card-widget,
+#body-wrap.type-link #aside-content .card-widget {
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 12px 30px rgba(41, 53, 73, 0.08) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#body-wrap.page-archive #archive:hover,
+#body-wrap.page-archive .layout > div:first-child > .article-sort-item:hover,
+#body-wrap.type-about #page:hover,
+#body-wrap.type-categories #page:hover,
+#body-wrap.type-tags #page:hover,
+#body-wrap.type-link #page:hover,
+#body-wrap.page-archive #aside-content .card-widget:hover,
+#body-wrap.type-about #aside-content .card-widget:hover,
+#body-wrap.type-categories #aside-content .card-widget:hover,
+#body-wrap.type-tags #aside-content .card-widget:hover,
+#body-wrap.type-link #aside-content .card-widget:hover {
+  background: #fff !important;
+  box-shadow: 0 14px 34px rgba(41, 53, 73, 0.1) !important;
+}
