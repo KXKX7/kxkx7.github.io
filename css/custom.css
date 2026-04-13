@@ -17,17 +17,23 @@
 html,
 body {
   background: transparent !important;
+  overflow-x: hidden;
 }
 
 /* One fixed wallpaper layer for the whole site */
 #web_bg {
   position: fixed !important;
-  inset: -140px !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 120vw !important;
+  height: 120vh !important;
+  min-width: 120vw !important;
+  min-height: 120vh !important;
   background-position: center 58% !important;
-  background-size: 118% auto !important;
+  background-size: cover !important;
   background-repeat: no-repeat !important;
   filter: blur(var(--home-bg-blur)) brightness(var(--home-bg-brightness)) saturate(var(--home-bg-saturate));
-  transform: scale(var(--home-bg-scale));
+  transform: translate(-50%, -50%) scale(var(--home-bg-scale));
   transition: filter 220ms ease, transform 220ms ease;
 }
 
@@ -36,6 +42,10 @@ body {
   background-image: none !important;
   background-color: transparent !important;
   background-attachment: scroll !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
 }
 
 /* Post pages should also rely on the single blurred global wallpaper */
@@ -53,12 +63,6 @@ body {
     linear-gradient(180deg, var(--home-bg-overlay-top), var(--home-bg-overlay-bottom)),
     var(--home-bg-overlay-solid);
   transition: background 220ms ease;
-}
-
-@media (max-aspect-ratio: 16 / 10) {
-  #web_bg {
-    background-size: auto 118% !important;
-  }
 }
 
 /* Foreground panels float above the wallpaper */
