@@ -181,3 +181,40 @@ body:has(#body-wrap.type-link) #web_bg {
 #body-wrap.type-link > #page-header {
   background-position: center 12% !important;
 }
+
+.post-like-panel {
+  margin: 1.8rem auto 1.2rem;
+  text-align: center;
+}
+
+.post-like-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 7.5rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid rgba(73, 177, 245, 0.4);
+  border-radius: 8px;
+  background: rgba(73, 177, 245, 0.1);
+  color: var(--font-color);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.post-like-button:hover {
+  border-color: rgba(73, 177, 245, 0.85);
+  background: rgba(73, 177, 245, 0.18);
+  transform: translateY(-1px);
+}
+
+.post-like-panel.is-liked .post-like-button {
+  border-color: rgba(244, 116, 102, 0.85);
+  background: rgba(244, 116, 102, 0.15);
+  color: #f47466;
+}
+
+.post-like-count {
+  min-width: 1.2rem;
+  font-weight: 600;
+}
