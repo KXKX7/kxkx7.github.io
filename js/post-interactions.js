@@ -10,7 +10,8 @@
     if (document.getElementById('post-like-panel')) return;
 
     var article = document.getElementById('article-container');
-    if (!article || !document.body.classList.contains('post')) return;
+    var bodyWrap = document.getElementById('body-wrap');
+    if (!article || !bodyWrap || !bodyWrap.classList.contains('post')) return;
 
     var key = 'post-like:' + normalizePath();
     var liked = localStorage.getItem(key) === '1';
