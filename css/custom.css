@@ -6,7 +6,7 @@
   --panel-border-dark: rgba(255, 255, 255, 0.08);
   --panel-shadow-dark: rgba(0, 0, 0, 0.34);
   --home-bg-blur: 0px;
-  --home-bg-scale: 1.08;
+  --home-bg-scale: 1.18;
   --home-bg-brightness: 0.98;
   --home-bg-saturate: 1;
   --home-bg-overlay-top: rgba(255, 255, 255, 0.08);
@@ -23,8 +23,8 @@ body {
 #web_bg {
   position: fixed !important;
   inset: -140px !important;
-  background-position: center center !important;
-  background-size: cover !important;
+  background-position: center 58% !important;
+  background-size: 118% auto !important;
   background-repeat: no-repeat !important;
   filter: blur(var(--home-bg-blur)) brightness(var(--home-bg-brightness)) saturate(var(--home-bg-saturate));
   transform: scale(var(--home-bg-scale));
@@ -53,6 +53,12 @@ body {
     linear-gradient(180deg, var(--home-bg-overlay-top), var(--home-bg-overlay-bottom)),
     var(--home-bg-overlay-solid);
   transition: background 220ms ease;
+}
+
+@media (max-aspect-ratio: 16 / 10) {
+  #web_bg {
+    background-size: auto 118% !important;
+  }
 }
 
 /* Foreground panels float above the wallpaper */

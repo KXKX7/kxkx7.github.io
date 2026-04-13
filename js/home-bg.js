@@ -7,7 +7,7 @@
 
   const applyProgress = progress => {
     const blur = 18 * progress
-    const scale = 1.08 + 0.06 * progress
+    const scale = 1.18 + 0.06 * progress
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
     const brightness = isDark ? 0.72 - 0.18 * progress : 0.98 - 0.12 * progress
     const saturate = isDark ? 0.92 - 0.08 * progress : 1 - 0.08 * progress
